@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""
+Factorize as many numbers as possible into a product of two smaller numbers in less than 5 seconds
+"""
+
+import sys
+import math
+
+file_name = str(sys.argv[1])
+f = open(file_name, "r")
+
+for line in f:
+    for i in range(2, int(line)):
+        if int(line) % i == 0:
+            p = int(line) / i
+            q = i
+            print("{}={}*{}".format(int(line), math.trunc(p), q))
+            break
+
+f.close()
